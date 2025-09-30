@@ -51,34 +51,14 @@ cd ~/catkin_ws
 catkin_make
 source devel/setup.bash
 Шаг 2: Создание структуры проекта
-bash
-cd ~/catkin_ws/src/my_robot
-mkdir urdf launch scripts
+`cd ~/catkin_ws/src/my_robot`
+
+`mkdir urdf launch scripts`
 Шаг 3: Создание URDF файла
 Создать файл: urdf/my_robot.urdf
 
-Содержит:
-
-4 звена (base_link, link1, link2, link3)
-
-3 вращательных шарнира (joint1, joint2, joint3)
-
-Геометрия: куб, цилиндры, сфера
-
-Материалы разных цветов
-
 Шаг 4: Создание Python контроллера
 Создать файл: scripts/robot_controller.py
-
-Функциональность:
-
-Инициализация ROS узла
-
-Публикация состояний шарниров
-
-Синусоидальное движение
-
-Частота обновления: 10Hz
 
 bash
 chmod +x ~/catkin_ws/src/my_robot/scripts/robot_controller.py
