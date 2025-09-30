@@ -5,19 +5,15 @@
 ## Homework 2: ROS
 ### Установка DOCKER и ROS1 в Ubuntu
 
-# Проверить версию ROS
-echo $ROS_DISTRO - проверить установку ROS
+| Команда  | Описание |  ?)    |
+|-------|-----|-------|
+| echo $ROS_DISTRO | Проверить установку ROS  | New York |
+| rospack list   | Проверить доступные пакеты  |    |
+| roscore   | Запустить ROS  | London   |
+| rosrun rviz rviz   | Тестирование графических инструментов (RVIZ)  |    |
+| rospack list   | Проверить доступные пакеты  |    |
 
-# Проверить доступные пакеты ROS
-rospack list
-
-# Запустить ROS
-roscore
-
-# Тестирование графических инструментов (RVIZ)
-rosrun rviz rviz
-
-# Полезные команды
+### Полезные команды
 ## Просмотр активных узлов
 rosnode list
 
@@ -39,9 +35,8 @@ cd ~/catkin_ws
 catkin_make
 
 ## Настройте окружение
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-
+1. `echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc`
+2. `source ~/.bashrc`
 
 Шаг 1: Создание ROS пакета
 bash
@@ -50,10 +45,11 @@ catkin_create_pkg my_robot rospy roscpp std_msgs geometry_msgs
 cd ~/catkin_ws
 catkin_make
 source devel/setup.bash
-Шаг 2: Создание структуры проекта
-`cd ~/catkin_ws/src/my_robot`
 
-`mkdir urdf launch scripts`
+Шаг 2: Создание структуры проекта
+Переход в папку - `cd ~/catkin_ws/src/my_robot`
+Создание директории -`mkdir urdf launch scripts`
+
 Шаг 3: Создание URDF файла
 Создать файл: urdf/my_robot.urdf
 
