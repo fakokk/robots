@@ -17,67 +17,35 @@
 |  `rosservice list`  |  Просмотр сервисов |    |
 
 ## Создание проекта
-| Команда  | Описание |  ?)    |
+| Команда  | Описание |
 |-------|-----|-------|
-|  `mkdir -p ~/catkin_ws/src``cd ~/catkin_ws`  |  Создание рабочей папки |    |
+|  `mkdir -p ~/catkin_ws/src`  |  Создание рабочей папки |
+|  `cd ~/catkin_ws`  |   |
+|  `catkin_make`  | Инициализация  |
+|  `echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc`  | Настройка окружения  |
+|  `cd ~/catkin_ws/src`  | Создание ROS пакета  |
+|  `catkin_create_pkg my_robot rospy roscpp std_msgs geometry_msgs`  |   |
+|  `cd ~/catkin_ws`  |   |
+|  `source devel/setup.bash`  |   |
+|  `cd ~/catkin_ws/src/my_robot`  |  Создание структуры проекта |
+|  `mkdir urdf launch scripts`  |   |
+|  `urdf/my_robot.urdf`  |  Создание URDF файла |
+|  `scripts/robot_controller.py`  |  Создание Python контроллера |
+|  `chmod +x ~/catkin_ws/src/my_robot/scripts/robot_controller.py`  | - отредактировать файлик  |
+|  `launch/display.launch`  |  Создание Launch файла |
+|  `rosrun rviz rviz -d ~/catkin_ws/src/my_robot/urdf/robot.rviz`  | Настройка RVIZ  |
+|  `cd ~/catkin_ws`  | Запуск системы  |
+|  `catkin_make`  |   |
+|  `source devel/setup.bash`  |   |
+|  `roslaunch my_robot display.launch`  |   |
+|  `sudo apt install liburdfdom-tools`  |  Визуализация URDF структуры |
+|  `cd ~/catkin_ws/src/my_robot/urdf`  |   |
+|  `urdf_to_graphiz my_robot.urdf`  |   |
+|  `check_urdf ~/catkin_ws/src/my_robot/urdf/my_robot.urdf`  | Проверка URDF  |
 
+- my_robot.pdf - графическое представление
+- my_robot.gv - текстовое описание
 
-
-## Инициализируйте workspace
-catkin_make
-
-## Настройте окружение
-1. `echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc`
-2. `source ~/.bashrc`
-
-Шаг 1: Создание ROS пакета
-bash
-cd ~/catkin_ws/src
-catkin_create_pkg my_robot rospy roscpp std_msgs geometry_msgs
-cd ~/catkin_ws
-catkin_make
-source devel/setup.bash
-
-Шаг 2: Создание структуры проекта
-Переход в папку - `cd ~/catkin_ws/src/my_robot`
-Создание директории -`mkdir urdf launch scripts`
-
-Шаг 3: Создание URDF файла
-Создать файл: urdf/my_robot.urdf
-
-Шаг 4: Создание Python контроллера
-Создать файл: scripts/robot_controller.py
-
-bash
-chmod +x ~/catkin_ws/src/my_robot/scripts/robot_controller.py
-Шаг 5: Создание Launch файла
-Создать файл: launch/display.launch
-
-Шаг 6: Настройка RVIZ
-`rosrun rviz rviz -d ~/catkin_ws/src/my_robot/urdf/robot.rviz`
-
-Шаг 7: Запуск системы
-`cd ~/catkin_ws`
-`catkin_make`
-`source devel/setup.bash`
-`roslaunch my_robot display.launch`
-Шаг 8: Визуализация URDF структуры
-
-sudo apt install liburdfdom-tools
-cd ~/catkin_ws/src/my_robot/urdf
-urdf_to_graphiz my_robot.urdf
-Создает файлы:
-
-my_robot.pdf - графическое представление
-
-my_robot.gv - текстовое описание
-
-Шаг 9: Запись видео демонстрации
-bash
-sudo apt install -y ffmpeg
-ffmpeg -video_size 1920x1080 -framerate 25 -f x11grab -i :0.0 -c:v libx264 output.mp4
-Структура проекта
-text
 my_robot/
 ├── CMakeLists.txt
 ├── package.xml
@@ -89,30 +57,3 @@ my_robot/
 ├── scripts/
 │   └── robot_controller.py
 └── README.md
-Команды проверки
-bash
-# Проверка URDF
-check_urdf ~/catkin_ws/src/my_robot/urdf/my_robot.urdf
-
-# Просмотр топиков
-rostopic echo /joint_states
-
-# Список узлов
-rosnode list
-
-# Список топиков
-rostopic list
-
-Описание робота
-Структура:
-Базовое звено: куб
-Звено 1: цилиндр
-Звено 2: цилиндр
-Звено 3: сфера
-Типы соединений:
-3 вращательных шарнира
-Цепная структура
-Управление:
-Синусоидальное движение
-Разные частоты для каждого шарнира
-Автоматическое циклическое движение
