@@ -49,7 +49,7 @@
 |  `check_urdf ~/catkin_ws/src/my_robot/urdf/my_robot.urdf`  | Проверка URDF  |
 
 # Скопировать весь проект в shared папку
-cp -r ~/catkin_ws/src/my_robot /home/ubuntu/shared/
+`cp -r ~/catkin_ws/src/my_robot /home/ubuntu/shared/`
 
 - my_robot.pdf - графическое представление
 - my_robot.gv - текстовое описание
