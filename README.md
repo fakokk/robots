@@ -3,6 +3,10 @@
 Здесь будет какой-то текст позднее.
 
 ## Homework 2: ROS
+| Команда  | Описание |
+|  `cd ~/catkin_ws`  | Запуск системы  |
+|  `catkin_make`  |   |
+|  `source devel/setup.bash`  |   |
 ### Установка DOCKER и ROS1 в Ubuntu
 
 | Команда  | Описание |  ?)    |
