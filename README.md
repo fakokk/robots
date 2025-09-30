@@ -85,37 +85,16 @@ chmod +x ~/catkin_ws/src/my_robot/scripts/robot_controller.py
 Шаг 5: Создание Launch файла
 Создать файл: launch/display.launch
 
-Компоненты:
-
-Загрузка URDF модели
-
-Запуск joint_state_publisher
-
-Запуск robot_state_publisher
-
-Запуск RVIZ
-
-Запуск контроллера
-
 Шаг 6: Настройка RVIZ
-bash
-rosrun rviz rviz -d ~/catkin_ws/src/my_robot/urdf/robot.rviz
-Действия в RVIZ:
-
-Добавить RobotModel
-
-Добавить TF
-
-Сохранить конфигурацию
+`rosrun rviz rviz -d ~/catkin_ws/src/my_robot/urdf/robot.rviz`
 
 Шаг 7: Запуск системы
-bash
-cd ~/catkin_ws
-catkin_make
-source devel/setup.bash
-roslaunch my_robot display.launch
+`cd ~/catkin_ws`
+`catkin_make`
+`source devel/setup.bash`
+`roslaunch my_robot display.launch`
 Шаг 8: Визуализация URDF структуры
-bash
+
 sudo apt install liburdfdom-tools
 cd ~/catkin_ws/src/my_robot/urdf
 urdf_to_graphiz my_robot.urdf
@@ -155,27 +134,17 @@ rosnode list
 
 # Список топиков
 rostopic list
+
 Описание робота
 Структура:
-
 Базовое звено: куб
-
 Звено 1: цилиндр
-
 Звено 2: цилиндр
-
 Звено 3: сфера
-
 Типы соединений:
-
 3 вращательных шарнира
-
 Цепная структура
-
 Управление:
-
 Синусоидальное движение
-
 Разные частоты для каждого шарнира
-
 Автоматическое циклическое движение
